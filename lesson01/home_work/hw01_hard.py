@@ -1,4 +1,4 @@
-
+import math
 __author__ = 'Ваши Ф.И.О.'
 
 # Задание-1:
@@ -12,5 +12,19 @@ __author__ = 'Ваши Ф.И.О.'
 
 # Вопрос: Чему была равна переменная a,
 # если точно известно, что её значение не изменялось?
+a = math.inf
+if a > 999999:
+    print(True)
+else:
+    print(False)
+if a == a ** 2:
+    print(True)
+else:
+    print(False)
+if a == a * 2:
+    print(True)
+else:
+    print(False)
 
+print("Неизвестное число равно: ", a)
 # Подсказка: это значение точно есть ;)
