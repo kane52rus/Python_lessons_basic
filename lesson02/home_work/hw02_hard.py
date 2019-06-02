@@ -4,6 +4,11 @@
 equation = 'y = -12x + 11111140.2121'
 x = 2.5
 # вычислите и выведите y
+print("Первое задание")
+eq = equation.split()
+a = eq[2]
+eq[0] = float(a[:-1]) * x + float(eq[4])
+print(f"X равен: {x}\nY равна: {eq[0]}")
 
 
 # Задание-2: Дата задана в виде строки формата 'dd.mm.yyyy'.
@@ -22,8 +27,25 @@ date = '01.11.1985'
 # Примеры некорректных дат
 date = '01.22.1001'
 date = '1.12.1001'
-date = '-2.10.3001'
-
+date_check = '30.02.3001'
+print("\nВторое задание")
+thirty_one = [1, 3, 5, 7, 8, 10, 12]
+date = date_check.split(".")
+day = int(date[0])
+month = int(date[1])
+year = int(date[2])
+if month not in thirty_one and day > 30:
+    print("Введен некорректный день месяца!")
+elif day > 31 or day < 1:
+    print("Введен некорректный день месяца!")
+elif month > 12 or month < 1:
+    print("Введен некорректный формат месяца")
+elif year < 1 or year > 9999:
+    print("Введен некорректный формат года")
+elif len(date[0]) != 2 or len(date[1]) != 2 or len(date[2]) != 4:
+    print("Введено некорректное количество цифр")
+else:
+    print(f"Дата введена корректно - {date_check}")
 
 # Задание-3: "Перевёрнутая башня" (Задача олимпиадного уровня)
 #
@@ -54,3 +76,22 @@ date = '-2.10.3001'
 #
 # Вход: 11
 # Выход: 5 3
+n = int(input("Введите номер"))
+num = n
+floor = 1
+room = 1
+right_room = None
+right_floor = 0
+while n > 0:
+    for current_floor in range(floor):
+        right_floor += 1
+        for current_room in range(room):
+            n -= 1
+            if n == 0:
+                right_room = current_room + 1
+                break
+        if n == 0:
+            break
+    room += 1
+    floor += 1
+print(f"Номер {num} находится на {right_floor} этаже, {right_room} слева")

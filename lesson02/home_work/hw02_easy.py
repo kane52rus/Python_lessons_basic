@@ -12,14 +12,46 @@
 # 4.  арбуз
 
 # Подсказка: воспользоваться методом .format()
+print("First task")
+form = ["Яблоко", "банан", "киви", "арбуз"]
+number = 1
+for i in form:
+    print(f"{number}. {i.lower():>10}")
+    number += 1
+
 
 
 # Задача-2:
 # Даны два произвольные списка.
 # Удалите из первого списка элементы, присутствующие во втором списке.
+print("\nSecond task")
+first_list = ["яблоко", "бутерброд", "киви", "арбуз", "ананас"]
+second_list = ["яблоко", "банан", "киви", "арбуз", "грейпфрут"]
+print(f"Первый лист: {first_list}")
+print(f"Второй лист: {second_list}")
+for i in first_list:
+    for n in second_list:
+        if i == n:
+            first_list.remove(i)
+print(f"Из первого удалены значения второго: {first_list}")
+print(f"Для наглядности, второй список: {second_list}")
 
 
 # Задача-3:
 # Дан произвольный список из целых чисел.
 # Получите НОВЫЙ список из элементов исходного, выполнив следующие условия:
 # если элемент кратен двум, то разделить его на 4, если не кратен, то умножить на два.
+print("\nThird tast")
+number_list = [int(input("Введите первое числа через запятую")), int(input("Введите первое числа через запятую")), int(input("Введите первое числа через запятую"))]
+new_number_list = []
+print(f"Текущий список значений: {number_list}")
+for j in number_list:
+    if j % 2 == 0:
+        num = float(j / 4)
+        new_number_list.append(num)
+    elif j % 2 != 0:
+        num = j * 2
+        new_number_list.append(num)
+    else:
+        print("")
+print(f"После выполнений условий: {new_number_list}")
