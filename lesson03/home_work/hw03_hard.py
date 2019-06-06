@@ -1,3 +1,4 @@
+from fractions import Fraction
 # Задание-1:
 # Написать программу, выполняющую операции (сложение и вычитание) с простыми дробями.
 # Дроби вводятся и выводятся в формате:
@@ -8,6 +9,27 @@
 # Вывод: 1 17/42  (результат обязательно упростить и выделить целую часть)
 # Ввод: -2/3 - -2
 # Вывод: 1 1/3
+def classic_float(n):
+    n = n.split()
+    z = n[0].split('/')
+    x = n[2].split('/')
+    z = Fraction(int(z[0]), int(z[1]))
+    x = Fraction(int(x[0]), int(x[1]))
+    y = z + x
+    print(type(y))
+    number = 0
+    # if y[0] >= y[1]:
+    #     number += 1
+    #     y[0] = y[0] % y[1]
+
+
+    print(z)
+    print(x)
+    print(y)
+
+
+n = "5/6 + 4/7"
+classic_float(n)
 
 
 # Задание-2:

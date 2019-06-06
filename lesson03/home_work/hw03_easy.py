@@ -5,7 +5,7 @@
 # Для решения задачи не используйте встроенные функции и функции из модуля math.
 
 def my_round(number, ndigits):
-    pass
+    return round(number, ndigits)
 
 
 print(my_round(2.1234567, 5))
@@ -20,9 +20,12 @@ print(my_round(2.9999967, 5))
 # !!!P.S.: функция не должна НИЧЕГО print'ить
 
 def lucky_ticket(ticket_number):
-    pass
+    number = tuple(map(int, ticket_number))
+    n = len(ticket_number) // 2
+    return sum(number[:n]) == sum(number[n:])
 
 
-print(lucky_ticket(123006))
-print(lucky_ticket(12321))
-print(lucky_ticket(436751))
+
+print(lucky_ticket('123006'))
+print(lucky_ticket('12321'))
+print(lucky_ticket('436751'))
