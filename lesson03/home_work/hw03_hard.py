@@ -11,24 +11,26 @@ from fractions import Fraction
 # Вывод: 1 1/3
 def classic_float(n):
     n = n.split()
-    z = n[0].split('/')
-    x = n[2].split('/')
-    z = Fraction(int(z[0]), int(z[1]))
-    x = Fraction(int(x[0]), int(x[1]))
-    y = z + x
-    print(type(y))
-    number = 0
-    # if y[0] >= y[1]:
-    #     number += 1
-    #     y[0] = y[0] % y[1]
+    z = Fraction(n[0])
+    x = Fraction(n[2])
+    operator = n[1]
+    if operator == '+':
+        fr_sum = x + z
+        if fr_sum > 1:
+            num = int(Fraction(fr_sum).numerator / Fraction(fr_sum).denominator)
+            fr_sum = fr_sum - num
+            print(f'{num} {fr_sum}')
+    elif operator == '-':
+        fr_sum = x - z
+        if fr_sum > 1:
+            num = int(Fraction(fr_sum).numerator / Fraction(fr_sum).denominator)
+            fr_sum = fr_sum - num
+            print(f'{num} {fr_sum}')
 
 
-    print(z)
-    print(x)
-    print(y)
 
 
-n = "5/6 + 4/7"
+n = "12/6 + 41/7"
 classic_float(n)
 
 
