@@ -9,29 +9,29 @@ from fractions import Fraction
 # Вывод: 1 17/42  (результат обязательно упростить и выделить целую часть)
 # Ввод: -2/3 - -2
 # Вывод: 1 1/3
-# def classic_float(n):
-#     n = n.split()
-#     z = Fraction(n[0])
-#     x = Fraction(n[2])
-#     operator = n[1]
-#     if operator == '+':
-#         fr_sum = x + z
-#         if fr_sum > 1:
-#             num = int(Fraction(fr_sum).numerator / Fraction(fr_sum).denominator)
-#             fr_sum = fr_sum - num
-#             print(f'{num} {fr_sum}')
-#     elif operator == '-':
-#         fr_sum = x - z
-#         if fr_sum > 1:
-#             num = int(Fraction(fr_sum).numerator / Fraction(fr_sum).denominator)
-#             fr_sum = fr_sum - num
-#             print(f'{num} {fr_sum}')
-#
-#
-#
-#
-# n = "12/6 + 41/7"
-# classic_float(n)
+def classic_float(n):
+    n = n.split()
+    z = Fraction(n[0])
+    x = Fraction(n[2])
+    operator = n[1]
+    if operator == '+':
+        fr_sum = x + z
+        if fr_sum > 1:
+            num = int(Fraction(fr_sum).numerator / Fraction(fr_sum).denominator)
+            fr_sum = fr_sum - num
+            print(f'{num} {fr_sum}')
+    elif operator == '-':
+        fr_sum = x - z
+        if fr_sum > 1:
+            num = int(Fraction(fr_sum).numerator / Fraction(fr_sum).denominator)
+            fr_sum = fr_sum - num
+            print(f'{num} {fr_sum}')
+
+
+
+
+n = "12/6 + 41/7"
+classic_float(n)
 
 
 # Задание-2:
@@ -43,30 +43,30 @@ from fractions import Fraction
 # Кол-во часов, которые были отработаны, указаны в файле "data/hours_of"
 
 import os
-#
-# def money_per_hour(money, hours):
-#     return round(money / hours, 2)
-#
-# path_workers = os.path.join('data', 'workers')
-# path_hours = os.path.join('data', 'hours_of')
-#
-# with open(path_workers, 'r', encoding='UTF-8') as f:
-#     f = f.readlines()[1:]
-# with open(path_hours, 'r', encoding='UTF-8') as d:
-#     d = d.readlines()[1:]
-# for i in f:
-#     workers = i.split()
-#     for j in d:
-#         hours = j.split()
-#         if workers[0] == hours[0] and workers[1] == hours[1]:
-#             print(workers[0], workers[1], hours[0], hours[1])
-#             if workers[4] >= hours[2]:
-#                 money_score = money_per_hour(int(workers[2]), int(workers[4])) * int(hours[2])
-#                 print(money_score)
-#             elif workers[4] < hours[2]:
-#                 over_work = int(hours[2]) - int(workers[4])
-#                 money_score = int(workers[2]) + over_work * money_per_hour(int(workers[2]), int(workers[4]))
-#                 print(money_score)
+
+def money_per_hour(money, hours):
+    return round(money / hours, 2)
+
+path_workers = os.path.join('data', 'workers')
+path_hours = os.path.join('data', 'hours_of')
+
+with open(path_workers, 'r', encoding='UTF-8') as f:
+    f = f.readlines()[1:]
+with open(path_hours, 'r', encoding='UTF-8') as d:
+    d = d.readlines()[1:]
+for i in f:
+    workers = i.split()
+    for j in d:
+        hours = j.split()
+        if workers[0] == hours[0] and workers[1] == hours[1]:
+            print(workers[0], workers[1], hours[0], hours[1])
+            if workers[4] >= hours[2]:
+                money_score = money_per_hour(int(workers[2]), int(workers[4])) * int(hours[2])
+                print(money_score)
+            elif workers[4] < hours[2]:
+                over_work = int(hours[2]) - int(workers[4])
+                money_score = int(workers[2]) + over_work * money_per_hour(int(workers[2]), int(workers[4]))
+                print(money_score)
 
 # Задание-3:
 # Дан файл ("data/fruits") со списком фруктов.
