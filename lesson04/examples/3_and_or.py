@@ -22,8 +22,8 @@ print(b)
 # Практический пример:
 # Получить имя, если имени нет, то "безымянный"
 
-# people = {"name": "Вася"}
-people = {}
+people = {"name": "Вася"}
+#people = {}
 
 if people.get("name"):
     name = people["name"]

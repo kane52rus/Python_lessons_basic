@@ -30,7 +30,7 @@ def classic_float(n):
 
 
 
-n = "12/6 + 41/7"
+n = "-4/6 - -2"
 classic_float(n)
 
 

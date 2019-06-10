@@ -1,4 +1,5 @@
 import re
+import random
 # Задание-1:
 # Вывести символы в нижнем регистре, которые находятся вокруг
 # 1 или более символов в верхнем регистре.
@@ -48,9 +49,8 @@ line_2 = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysm'\
        'uXBqHFjvihuNGEEFsfnMXTfptvIOlhKhyYwxLnqOsBdGvnuyEZIheApQGOXWeXoLWiDQN'\
        'JFaXiUWgsKQrDOeZoNlZNRvHnLgCmysUeKnVJXPFIzvdDyleXylnKBfLCjLHntltignbQ'\
        'oiQzTYwZAiRwycdlHfyHNGmkNqSwXUrxGC'
-line_22 = "GAMkgAYEOmHBSQsSUHKvSfbmxULaysmNOGIPHpEMujalpPLNzRWXfwHQqwksrFeipEUlTLec"
 
-result = re.findall(r'[^a-z]*[^a-z]+[A-Z]*[^A-Z]+[A-Z]*[A-Z]', line_22)
+result = re.findall(r'[a-z]{2}([A-Z]+)[A-Z]{2}', line_2)
 print(result)
 
 # Задание-3:
@@ -59,3 +59,24 @@ print(result)
 # 2500-значное произвольное число.
 # Найдите и выведите самую длинную последовательность одинаковых цифр
 # в вышезаполненном файле.
+
+longest = []
+with open("numbers.txt", "w", encoding='utf-8') as f:
+       num = [str(random.randint(0,100)) for _ in range(2499)]
+       num = str(random.randint(1,100)) + ''.join(num)
+       f.write(num)
+
+with open("numbers.txt", encoding="utf-8") as f:
+       num_read = f.readline()
+for i in random.randrange(0,9):
+       result = re.findall(r'[%i]{2,}'.format(i), num_read)
+       print(result)
+
+
+
+
+
+
+
+print(f"num {num}")
+print(f"num_read {result}")
