@@ -5,7 +5,7 @@ import random
 # 1 или более символов в верхнем регистре.
 # Т.е. из строки "mtMmEZUOmcq" нужно получить ['mt', 'm', 'mcq']
 # Решить задачу двумя способами: с помощью re и без.
-
+seq_line = []
 line = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysmNO'\
        'GIPHpEMujalpPLNzRWXfwHQqwksrFeipEUlTLeclMwAoktKlfUBJHPsnawvjPhfgewVzK'\
        'TUfSYtBydXaVIpxWjNKgXANvIoumesCSSvjEGRJosUfuhRRDUuTQwLlJJJDdkVjfSAHqn'\
@@ -21,9 +21,20 @@ line = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysmNO'\
        'qHFjvihuNGEEFsfnMXTfptvIOlhKhyYwxLnqOsBdGvnuyEZIheApQGOXWeXoLWiDQNJFa'\
        'XiUWgsKQrDOeZoNlZNRvHnLgCmysUeKnVJXPFIzvdDyleXylnKBfLCjLHntltignbQoiQ'\
        'zTYwZAiRwycdlHfyHNGmkNqSwXUrxGc'
-
+print("FIrst task with re")
 result = re.findall(r'[a-z]*[^A-Z]+[a-z]*', line)
 #print(result)
+
+print("\nfirst task without re")
+line = list(''.join(line))
+print(line)
+for i in line:
+       if i == i.lower():
+              seq_line.append(i)
+
+print(seq_line)
+
+
 
 
 # Задание-2:
@@ -51,7 +62,7 @@ line_2 = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysm'\
        'oiQzTYwZAiRwycdlHfyHNGmkNqSwXUrxGC'
 
 result = re.findall(r'[a-z]{2}([A-Z]+)[A-Z]{2}', line_2)
-print(result)
+#print(result)
 
 # Задание-3:
 # Напишите скрипт, заполняющий указанный файл (самостоятельно задайте имя файла)
@@ -68,15 +79,12 @@ with open("numbers.txt", "w", encoding='utf-8') as f:
 
 with open("numbers.txt", encoding="utf-8") as f:
        num_read = f.readline()
-for i in random.randrange(0,9):
-       result = re.findall(r'[%i]{2,}'.format(i), num_read)
-       print(result)
+for i in range(0, 9):
+       pattern = re.compile('[%i]{2,}' % i)
+       result = max(pattern.findall(num_read))
+       longest.append(result)
+
+with open("numbers.txt", "w", encoding='utf-8') as f:
+       f.write(f"Самая длинная последовательность: {max(longest, key=len)}")
 
 
-
-
-
-
-
-print(f"num {num}")
-print(f"num_read {result}")
