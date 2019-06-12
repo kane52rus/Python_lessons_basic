@@ -1,10 +1,11 @@
+import re
 # Задание-1:
 # Матрицы в питоне реализуются в виде вложенных списков:
 # Пример. Дано:
 matrix = [[1, 0, 8],
           [3, 4, 1],
           [0, 4, 2]]
-          
+
 # Выполнить поворот (транспонирование) матрицы
 # Пример. Результат:
 # matrix_rotate = [[1, 3, 0],
@@ -12,8 +13,8 @@ matrix = [[1, 0, 8],
 #                  [8, 1, 2]]
 
 # Суть сложности hard: Решите задачу в одну строку
-rotate_matrix = list(map(list, zip(*matrix)))
-print(rotate_matrix)
+rotate_matrix = [print(f"rotate_matrix = {list(map(list, zip(*matrix)))}")]
+
 # Задание-2:
 # Найдите наибольшее произведение пяти последовательных цифр в 1000-значном числе.
 # Выведите произведение и индекс смещения первого числа последовательных 5-ти цифр.
@@ -41,6 +42,24 @@ number = """
 71636269561882670428252483600823257530420752963450"""
 
 
+num = re.findall(r'\w', number)
+score_list = []
+
+
+for i in range(len(num)):
+    score = 1
+    for j in num[i:i+5]:
+        j = int(j)
+        score *= j
+    score_list.append(score)
+max_number_index, max_number = max(enumerate(score_list), key=lambda x: x[1])
+
+print(f"Индекс смещения числа: {max_number_index}")
+print(f"Максимальное произведение последовательности: {max_number}")
+
+
+
+
 # Задание-3 (Ферзи):
 # Известно, что на доске 8×8 можно расставить 8 ферзей так, чтобы они не били
 # друг друга. Вам дана расстановка 8 ферзей на доске.
@@ -48,3 +67,20 @@ number = """
 # Программа получает на вход восемь пар чисел,
 # каждое число от 1 до 8 — координаты 8 ферзей.
 # Если ферзи не бьют друг друга, выведите слово NO, иначе выведите YES.
+
+side_size = 8
+x = []
+y = []
+for i in range(side_size):
+    position_x, position_y = [int(x) for x in input("Координаты X:Y").split(":")]
+    x.append(position_x)
+    y.append(position_y)
+condition = True
+for i in range(side_size):
+    for j in range(i + 1, side_size):
+        if x[i] == x[j] or y[i] == y[j] or abs(x[i] - x[j]) == abs(y[i] - y[j]):
+            condition = False
+if condition:
+    print("NO")
+else:
+    print("YES")
