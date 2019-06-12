@@ -53,6 +53,7 @@ print(seq_line)
 # нужно получить список строк: ['AY', 'NOGI', 'P']
 # Решить задачу двумя способами: с помощью re и без.
 
+
 line_2 = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysm'\
        'NOGIPHpEMujalpPLNzRWXfwHQqwksrFeipEUlTLeclMwAoktKlfUBJHPsnawvjPhfgewV'\
        'fzKTUfSYtBydXaVIpxWjNKgXANvIoumesCSSvjEGRJosUfuhRRDUuTQwLlJJJDdkVjfSA'\
@@ -71,6 +72,7 @@ line_2 = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysm'\
 print("\nSecond task with re")
 result = re.findall(r'[a-z]{2}([A-Z]+)[A-Z]{2}', line_2)
 print(result)
+
 
 print("\nSecond task without re")
 letter_upper = list(map(lambda x: chr(x), list(range(65, 91))))
