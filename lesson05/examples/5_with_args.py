@@ -30,10 +30,12 @@ do = {
     "help": print_help,
     "mkdir": make_dir,
     "ping": ping
+    "cp":
 }
 
 try:
     dir_name = sys.argv[2]
+    print(dir_name)
 except IndexError:
     dir_name = None
 
