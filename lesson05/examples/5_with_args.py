@@ -2,6 +2,8 @@
 # python with_args.py param1 param2 param3
 import os
 import sys
+import shutil
+import hw05_easy as easy
 print('sys.argv = ', sys.argv)
 
 
@@ -26,11 +28,51 @@ def make_dir():
 def ping():
     print("pong")
 
+def copy_file():
+    src_file_name_temp = dir_name.split(".")
+    dst_file_name = src_file_name_temp[0] + "_copy." + src_file_name_temp[1]
+    if not dir_name:
+        print("Вы не указали файл для копирования")
+    try:
+        shutil.copy(dir_name, dst_file_name)
+        print(f"Бэкапирование прошло успешно. {dst_file_name}")
+    except FileNotFoundError:
+        print(f"{dir_name} не существует. Проверьте написание имени файла")
+
+def rm_file():
+    if not dir_name:
+        print("Необходимо задать имя директории")
+        return
+    try:
+        os.remove(dir_name)
+        print(f"Директория {dir_name} успешно удалена!")
+
+    except FileNotFoundError:
+        print(f"Такой директории не существует")
+
+def cd_dir():
+    if not dir_name:
+        print("Необходимо задать имя директории")
+        return
+    try:
+        os.chdir(dir_name)
+        print(f"Вы перешли в директорию {os.getcwd()}")
+    except FileNotFoundError:
+        print(f"Директории {dir_name} не существует")
+
+def dir_list():
+    print(os.listdir(path="."))
+
+
 do = {
     "help": print_help,
     "mkdir": make_dir,
-    "ping": ping
-    "cp":
+    "ping": ping,
+    "cp": copy_file,
+    "rm": rm_file,
+    "cd": cd_dir,
+    "ls": dir_list,
+
 }
 
 try:
