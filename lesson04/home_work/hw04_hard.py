@@ -41,7 +41,6 @@ number = """
 05886116467109405077541002256983155200055935729725
 71636269561882670428252483600823257530420752963450"""
 
-
 num = re.findall(r'\w', number)
 score_list = []
 
@@ -56,8 +55,6 @@ max_number_index, max_number = max(enumerate(score_list), key=lambda x: x[1])
 
 print(f"Индекс смещения числа: {max_number_index}")
 print(f"Максимальное произведение последовательности: {max_number}")
-
-
 
 
 # Задание-3 (Ферзи):
