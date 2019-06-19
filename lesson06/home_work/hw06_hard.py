@@ -10,7 +10,7 @@
 # С использованием классов.
 # Реализуйте классы сотрудников так, чтобы на вход функции-конструктора
 # каждый работник получал строку из файла
-lass Worker:
+class Worker:
     def __init__(self, name, surname, money, position, hours):
         self.name = name
         self.surname = surname
