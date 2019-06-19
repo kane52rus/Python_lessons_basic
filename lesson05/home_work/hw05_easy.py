@@ -42,6 +42,7 @@ def mkdir(dir_name):
     except FileExistsError:
         print(f"Директория {dir_name} уже существует!")
 
+
 def remove_file(dir_name):
     if not dir_name:
         print("Необходимо задать имя директории")
@@ -52,6 +53,7 @@ def remove_file(dir_name):
 
     except FileNotFoundError:
         print(f"Такой директории не существует")
+
 
 def cd(dir_name):
     if not dir_name:
