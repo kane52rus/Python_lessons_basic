@@ -38,4 +38,4 @@ print('v3 = ', v3)
 # Функция print() для получения строки для вывода вызывает методы __str__()
 print('v3 + v3 =', v3 + v3)
 
-# Список ВСЕХ magic-методов см. тут: http://pythonworld.ru/osnovy/peregruzka-operatorov.html
+# Список ВСЕХ magic-методов см. тут: http://pyth\onworld.ru/osnovy/peregruzka-operatorov.html

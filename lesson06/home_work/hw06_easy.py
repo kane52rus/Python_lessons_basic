@@ -4,37 +4,37 @@ import re
 # Определить методы, позволяющие вычислить: площадь, высоту и периметр фигуры.
 
 
-# class Triangle:
-#     def __init__(self, a, b, c):
-#         self.a = a
-#         self.b = b
-#         self.c = c
-#
-#     def perimeter(self):
-#         self.p = (self.a + self.b + self.c) / 2
-#         print(self.p)
-#     def square(self):
-#         self.s = math.sqrt(self.p * (self.p - self.a) * (self.p - self.b) * (self.p - self.c))
-#         print(self.s)
-#     def height(self):
-#         self.hA = (2 * self.s) / a
-#         self.hB = (2 * self.s) / b
-#         self.hC = (2 * self.s) / c
-#         print("Высота точки А: ", self.hA)
-#         print("Высота точки B: ", self.hB)
-#         print("Высота точки C: ", self.hC)
-#
-# coords = input("Введите координаты по маске А1:А2 B1:B2 C1:C2 - ")
-# x1, y1, x2, y2, x3, y3 = list(map(int, re.split("\D", coords)))
-# a = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
-# b = math.sqrt((x3 - x1) ** 2 + (y3 - y1) ** 2)
-# c = math.sqrt((x2 - x3) ** 2 + (y2 - y3) ** 2)
-#
-#
-# triange = Triangle(a, b, c)
-# triange.perimeter()
-# triange.square()
-# triange.height()
+class Triangle:
+    def __init__(self, a, b, c):
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def perimeter(self):
+        self.p = (self.a + self.b + self.c) / 2
+        print(self.p)
+    def square(self):
+        self.s = math.sqrt(self.p * (self.p - self.a) * (self.p - self.b) * (self.p - self.c))
+        print(self.s)
+    def height(self):
+        self.hA = (2 * self.s) / a
+        self.hB = (2 * self.s) / b
+        self.hC = (2 * self.s) / c
+        print("Высота точки А: ", self.hA)
+        print("Высота точки B: ", self.hB)
+        print("Высота точки C: ", self.hC)
+
+coords = input("Введите координаты по маске А1:А2 B1:B2 C1:C2 - ")
+x1, y1, x2, y2, x3, y3 = list(map(int, re.split("\D", coords)))
+a = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+b = math.sqrt((x3 - x1) ** 2 + (y3 - y1) ** 2)
+c = math.sqrt((x2 - x3) ** 2 + (y2 - y3) ** 2)
+
+
+triange = Triangle(a, b, c)
+triange.perimeter()
+triange.square()
+triange.height()
 
 
 
@@ -42,6 +42,8 @@ import re
 # Предусмотреть в классе методы:
 # проверка, является ли фигура равнобочной трапецией;
 # вычисления: длины сторон, периметр, площадь.
+
+
 
 class Trapezium:
     def __init__(self, coords):
