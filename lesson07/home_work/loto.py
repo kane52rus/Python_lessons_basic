@@ -58,26 +58,97 @@
 
 """
 import random
-class Barrel:
-    def __init__(self):
-        self.total_barrel = 90
-        self.number = [x for x in range(1, total_barrel + 1)]
-
-    def check(self):
-        random.shuffle(self.number)
-        for i in enumerate(self.number):
-            self.num = self.total_barrel - (i + 1)
-            yield self.num
-
-    def __str__(self):
-        for i, j in enumerate(self.number):
-            num = self.check()
-            return f"Следующее число: {j}, осталось {num}"
 
 total_barrel = 90
 
 
+class Barrel:
+    def __init__(self, total_barrel):
+        self.total_barrel = total_barrel
+        self.count = self.unique()
+        self.list_num = [x for x in range(1, self.total_barrel + 1)]
+
+    def unique(self):
+        random.shuffle(self.list_num)
+        for i, j in enumerate(self.list_num):
+            self.total_barrel - (i + 1)
+            print(f"Следующий бочонок - {j} (осталось {self.total_barrel - (i + 1)})")
+            yield j
 
 
-test = Barrel()
-print(test)
+
+class Card:
+
+    def string(self):
+        check = []
+        num_list = []
+        while len(num_list) < 15:
+            number = str(random.randrange(1, 91))
+            if number not in check:
+                num_list.append(number)
+                check.append(number)
+        return num_list
+
+    def int_card(self):
+        avg = len(self.string()) / 3
+        self.out = []
+        last = 0
+        while last < len(self.string()):
+            self.out.append(self.string()[int(last):int(last + avg)])
+            last += avg
+        for i, j in enumerate(self.out):
+            self.out[i] = list(j) + list(" " * 4)
+            for x, y in enumerate(j):
+                if int(y) < 10:
+                    self.out[i][x] = f"{y} "
+            random.shuffle(self.out[i])
+        print("-------------------------------")
+        print(self.player)
+        print("-------------------------------")
+        print(f"{'  '.join(self.out[0])}\n{'  '.join(self.out[1])}\n{'  '.join(self.out[2])}")
+        print("-------------------------------")
+        return self.out
+
+    def __init__(self, player):
+        self.player = player
+        card = self.int_card()
+
+
+class Game:
+    def __init__(self):
+        self.card_human = Card("Ваша карточка")
+        self.card_computer = Card("Карточка компьютера")
+        self.first_move = Barrel(total_barrel)
+        self.start_game()
+    def start_game(self):
+        self.move = next(self.first_move.count)
+
+    def check(self, num_list):
+        print(num_list)
+        for i, j in enumerate(num_list):
+            for x, y in enumerate(j):
+                if self.move == y:
+                    num_list[i][x] = "-"
+                    print(num_list)
+
+
+
+
+
+
+
+
+
+
+
+
+
+game = Game()
+print(game.check(Card("Моя карточка")))
+
+
+
+
+# next(test.count)
+# next(test.count)
+
