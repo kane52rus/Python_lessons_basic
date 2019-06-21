@@ -57,3 +57,27 @@
 модуль random: http://docs.python.org/3/library/random.html
 
 """
+import random
+class Barrel:
+    def __init__(self):
+        self.total_barrel = 90
+        self.number = [x for x in range(1, total_barrel + 1)]
+
+    def check(self):
+        random.shuffle(self.number)
+        for i in enumerate(self.number):
+            self.num = self.total_barrel - (i + 1)
+            yield self.num
+
+    def __str__(self):
+        for i, j in enumerate(self.number):
+            num = self.check()
+            return f"Следующее число: {j}, осталось {num}"
+
+total_barrel = 90
+
+
+
+
+test = Barrel()
+print(test)
