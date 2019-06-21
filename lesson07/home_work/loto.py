@@ -114,6 +114,8 @@ class Card:
         card = self.int_card()
 
 
+
+
 class Game:
     def __init__(self):
         self.card_human = Card("Ваша карточка")
